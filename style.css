@@ -30,3 +30,14 @@
   transform: translateX(-50%);
   background-color: black;
 }
+
+.a, .b, .c {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  position: relative;
+}
+
+.a { top: 1000px;}
+.b { top: 1200px;}
+.c { top: 1400px;}
