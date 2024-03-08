@@ -1,4 +1,5 @@
-# ScrollTrigger Plugin [See doc](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
+# ScrollTrigger Plugin   
+[See doc](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
 
 ## Utilisation minimale :  
 L'animation commencera lorsque l'objet apparaît sur le viewport. Attention, pas de s majuscule !
@@ -67,4 +68,30 @@ Il est possible de créer un ScrollTrigger qui n'est pas dépendant d'un éléme
 Pour cette partie, voir la doc à 15:00. Cela peut varier selon les cas d'utilisation.
 
 ## Callbacks :
-à voir dans la doc
+Il est possible d'affecter des actions sur des status.
+```javascript
+  Scrolltrigger.create({
+    trigger: ".box",
+    start: "top center",
+    end: "top 100px",
+    onEnter: () => console.log("enter"),
+    onLeave: () => console.log("leave"),
+    onEnterBack: () => console.log("enter back"),
+    onLeaveBack: () => console.log("leave back"),
+    onUpdate: (sefl) => console.log("update :", self.progress.toFixed(3)),
+    onToggle: (self) => console.log("toggle", self.isActive),
+    id: "my-id",
+    toggleClass: "active",
+  })
+```
+`id` permet de définir un noms pour les markers de l'animation.  
+`toggleClass` permet d'ajouter une class à l'objet tant qu'il est active.  
+
+## Default ScrollTrigger settings :  
+Il est possible de définir des caractéristiques par défault pour chaques animations du site.
+```javascript
+  ScrollTrigger.defaults({
+    toggleActions: "restart pause resume none",
+    markers: true,
+  });
+```
